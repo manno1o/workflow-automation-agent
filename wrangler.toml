@@ -1,0 +1,15 @@
+name = "workflow-automation-agent"
+main = "src/worker.ts"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[triggers]
+crons = ["* * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "wfa"
+database_id = "REPLACE_WITH_ID"  # wrangler d1 create wfa
+migrations_dir = "migrations"
+
+# Secrets: wrangler secret put ANTHROPIC_API_KEY (and the rest from .env.example)
